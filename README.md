@@ -18,4 +18,4 @@ Work in progress™️
 
 
 <h2>Known issues:</h2>
-To print the card with applied template in Angular app click on `Card` is required.
+To print the card with applied template in Angular 11 app click on `Card` is required.
