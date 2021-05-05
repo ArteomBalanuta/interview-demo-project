@@ -1,0 +1,40 @@
+<br>
+<h3>Add user</h3>
+<div class="form-group">
+  <form (ngSubmit)="addPerson()">
+    <div class="fist-name">
+      <label for="firstName">First Name: </label>
+      <input type="text" placeholder="First name" id="firstName" name="firstName"
+             [ngModel]="person.firstName"
+             (ngModelChange)="setFirstName($event)">
+    </div>
+    <div class="last-name">
+      <label for="lastName">Last Name: </label>
+      <input type="text" placeholder="Last name" id="lastName" name="lastName"
+             [(ngModel)]="person.lastName"
+             (ngModelChange)="setLastName($event)">
+    </div>
+    <div class="gender">
+      <label for="gender">Gender: </label>
+      <div id="gender">
+        <input type="radio" name="gender"
+               [(ngModel)]="person.gender" value="Male">Male
+        <input type="radio" name="gender"
+               [(ngModel)]="person.gender" value="Female">Female
+      </div>
+    </div>
+    <div class="email">
+      <label for="email">Email: </label>
+      <input type="text" placeholder="email" name="email" id="email"
+             [(ngModel)]="person.email"
+             (ngModelChange)="setEmail($event)">
+    </div>
+    <div class="phone">
+      <label for="email">Phone: </label>
+      <input type="text" placeholder="phone" name="phone" id="phone"
+             [(ngModel)]="person.phone"
+             (ngModelChange)="setPhone($event)">
+    </div>
+    <button type="submit">Add</button>
+  </form>
+</div>

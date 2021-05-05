@@ -1,0 +1,7 @@
+<br>
+<h3>Persons</h3>
+<div *ngFor="let person of persons">
+  <div *ngIf="person">
+    <app-person-item [person]="person"></app-person-item>
+  </div>
+</div>

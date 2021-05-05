@@ -1,0 +1,9 @@
+<div class="list" *ngIf="person">
+  <li (click)="displayContactCard()">
+    {{person.firstName}}
+  </li>
+  <div *ngIf="person.isCurrentTemplateActive">
+    <app-contact-card-template [person]="person"></app-contact-card-template>
+    <app-contact-card [person]="person"></app-contact-card>
+  </div>
+</div>

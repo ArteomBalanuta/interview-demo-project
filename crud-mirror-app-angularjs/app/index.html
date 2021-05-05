@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="crud-mirror-app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="crud-mirror-app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="crud-mirror-app" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="crud-mirror-app" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>crud-mirror-app-angularJS</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script type="module" src="app.js"></script>
+    <script src="model/person.js"></script>
+    <script src="core/version/version.js"></script>
+    <script src="core/version/version-directive.js"></script>
+    <script src="core/version/interpolate-filter.js"></script>
+</head>
+
+<body>
+
+<div ng-controller="appController">
+    <form name="newPerson">
+        firstname : <input type="text" ng-model="newPerson.firstName"/><br/>
+        lastName : <input type="text" ng-model="newPerson.lastName"/><br/>
+        gender : <input type="text" ng-model="newPerson.gender"/><br/>
+        email : <input type="text" ng-model="newPerson.email"/><br/>
+        phone : <input type="text" ng-model="newPerson.phone"/><br/>
+        <input type="submit" ng-click="save(newPerson)" value="Save"/>
+    </form>
+
+    <div>
+        <div ng-repeat="person in persons">
+            <div ng-if="person.id >= 0">
+                <div ng-click="refreshCurrentPerson(person.id)">
+                    <li>{{ person.firstName }}</li>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <form ng-submit="saveTemplate()">
+            <div class="template">
+                <label for="template">Template used to display contact card:q </label>
+                <textarea type="text" id="template" name="template" ng-model="tempTemplate"></textarea>
+            </div>
+            <button type="submit">Save template</button>
+        </form>
+    </div>
+
+    <div><h2>Person Card:</h2></div>
+    <div compile="person.template"></div>
+</div>
+
+<iframe src="http://localhost:8080" name="target" id="target" width="0" height="0" style="display: none" ></iframe>
+</body>
+</html>

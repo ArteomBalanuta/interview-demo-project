@@ -1,0 +1,10 @@
+<div>
+  <form (ngSubmit)="saveTemplate()">
+    <div class="template">
+      <label for="template">Template used to display contact card: </label>
+      <textarea type="text" id="template" name="template"
+                [(ngModel)]="template"></textarea>
+    </div>
+    <button type="submit">Save template</button>
+  </form>
+</div>
